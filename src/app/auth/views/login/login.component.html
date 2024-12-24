@@ -43,7 +43,7 @@
           </div>
 
           <p-button
-            [disabled]="!form.valid"
+            [disabled]="!form.valid || isLoggingIn()"
             class="mt-8 block"
             label="Sign in"
             type="submit"
