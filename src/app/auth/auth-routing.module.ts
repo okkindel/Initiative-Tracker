@@ -1,21 +1,17 @@
 import { RouterModule, Routes } from '@angular/router';
-import { isAuthenticated } from '@auth/guards';
 import { NgModule } from '@angular/core';
 
-import { HomeComponent } from './views';
+import { LoginComponent } from './views';
 
 const routes: Routes = [
   {
-    path: '',
-    canActivate: [isAuthenticated],
-    component: HomeComponent,
+    path: 'login',
+    component: LoginComponent,
   },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
-
-  declarations: [],
 })
-export class CoreRoutingModule {}
+export class AuthRoutingModule {}

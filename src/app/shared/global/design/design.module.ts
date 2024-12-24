@@ -1,13 +1,21 @@
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { DialogService } from 'primeng/dynamicdialog';
+import { InputTextModule } from 'primeng/inputtext';
 import { providePrimeNG } from 'primeng/config';
 import { definePreset } from '@primeng/themes';
 import { ButtonModule } from 'primeng/button';
 import { DialogModule } from 'primeng/dialog';
+import { MessageService } from 'primeng/api';
+import { ToastModule } from 'primeng/toast';
 import { NgModule } from '@angular/core';
 import Aura from '@primeng/themes/aura';
 
-const DESIGN_MODULES = [ButtonModule, DialogModule];
+const DESIGN_MODULES = [
+  InputTextModule,
+  ButtonModule,
+  DialogModule,
+  ToastModule,
+];
 
 @NgModule({
   providers: [
@@ -33,6 +41,7 @@ const DESIGN_MODULES = [ButtonModule, DialogModule];
       },
     }),
     provideAnimationsAsync(),
+    MessageService,
     DialogService,
   ],
   imports: [...DESIGN_MODULES],

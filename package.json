@@ -11,7 +11,8 @@
     "check:format": "prettier --check src",
     "check:all": "npm run check:lint && npm run check:types && npm run check:format",
     "lint:fix": "ng lint --fix",
-    "format:fix": "npm run lint:fix && prettier --write ."
+    "format:fix": "npm run lint:fix && prettier --write .",
+    "codegen": "appwrite-typescript --config .env.json -d src/app/api/models -o database.model.ts"
   },
   "private": true,
   "dependencies": {
@@ -28,6 +29,7 @@
     "@jsverse/transloco-persist-lang": "^7.0.2",
     "@primeng/themes": "^19.0.1",
     "@tanstack/angular-query-experimental": "^5.52.0",
+    "appwrite": "^16.1.0",
     "canvas-confetti": "^1.9.3",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
@@ -46,6 +48,7 @@
     "@types/canvas-confetti": "^1.9.0",
     "@types/node": "^22.9.3",
     "angular-eslint": "^18.3.0",
+    "appwrite-typescript": "^0.0.1",
     "autoprefixer": "^10.4.20",
     "eslint": "^9.9.0",
     "eslint-config-prettier": "^9.1.0",

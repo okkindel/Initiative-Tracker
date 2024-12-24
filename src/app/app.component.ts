@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-root',
+  host: { class: 'h-screen block' },
+  selector: 'it-root',
   standalone: false,
   template: `
+    <p-toast />
     <router-outlet />
   `,
 })
