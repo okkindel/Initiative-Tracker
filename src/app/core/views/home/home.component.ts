@@ -33,8 +33,6 @@ export class HomeComponent {
         .then((res) => res.documents),
   }));
 
-  public readonly autocompleteSearch = signal<string>('');
-
   public readonly queue = signal<Queue>(
     Queue.fromPlayers(['Dagmar', 'Ditrich', 'Fulko', 'Salvas']),
   );
@@ -45,13 +43,6 @@ export class HomeComponent {
       .onClose.subscribe((roll) => {
         this.queue.set(this.queue().addMonster(monster, roll).regenerate());
       });
-  }
-
-  public roll(): void {
-    const ref = this._dialogService.open(InitiativeDiceModalComponent, {});
-    ref.onClose.subscribe((res) => console.log('closed', res));
-    // this.dialogVisible.set(true);
-    // setTimeout(() => this._diceBox()?.roll('1d10'), 1000);
   }
 
   public logout(): void {
