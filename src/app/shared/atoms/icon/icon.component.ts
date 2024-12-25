@@ -25,7 +25,7 @@ export type Icon = keyof typeof icons;
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [LucideAngularModule],
-  selector: 'app-icon',
+  selector: 'it-icon',
 })
 export class IconComponent {
   public readonly name = input<Icon>();

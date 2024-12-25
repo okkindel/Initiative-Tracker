@@ -5,12 +5,23 @@
         @if (item.avatarSrc) {
           <img
             class="size-12 flex-none rounded-full"
+            [class.grayscale]="item.killed"
             [src]="item.avatarSrc"
             [alt]="item.id"
           />
+        } @else {
+          <avvvatars
+            [class.grayscale]="item.killed"
+            borderColor="#c13908"
+            [value]="item.name"
+            [border]="true"
+            [size]="45"
+          />
         }
         <div class="min-w-0">
-          <p class="text-sm/6 font-semibold">{{ item.name }}</p>
+          <p class="text-sm/6 font-semibold" [class.line-through]="item.killed">
+            {{ item.displayedName }}
+          </p>
           @if (item.basicInitiative) {
             <p class="mt-1 truncate text-xs/5 text-gray-500">
               Base Initiative: {{ item.basicInitiative }}
@@ -18,10 +29,29 @@
           }
         </div>
 
-        <div class="ml-auto mr-6 text-2xl">
-          <p>
+        <div class="ml-auto mr-6 flex items-center gap-4">
+          <p class="text-2xl">
             {{ item.totalInitiative }}
           </p>
+
+          <p-button
+            [severity]="item.killed ? 'secondary' : 'primary'"
+            (click)="item.toggleKilled()"
+            [outlined]="true"
+            size="small"
+          >
+            <it-icon name="Swords" />
+          </p-button>
+
+          <p-button
+            [disabled]="item.type === 'player'"
+            (click)="removeItem(item)"
+            [outlined]="true"
+            severity="danger"
+            size="small"
+          >
+            <it-icon name="Trash" />
+          </p-button>
         </div>
       </li>
     }

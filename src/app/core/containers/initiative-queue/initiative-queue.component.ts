@@ -4,7 +4,7 @@ import {
   computed,
   model,
 } from '@angular/core';
-import { Queue } from '@core/utils';
+import { QItem, Queue } from '@core/utils';
 
 @Component({
   templateUrl: './initiative-queue.component.html',
@@ -17,4 +17,8 @@ export class InitiativeQueueComponent {
   public readonly queue = model.required<Queue>();
 
   public readonly list = computed(() => this.queue().sort().items);
+
+  public removeItem(item: QItem): void {
+    this.queue.set(this.queue().remove(item).regenerate());
+  }
 }

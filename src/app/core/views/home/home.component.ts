@@ -40,10 +40,11 @@ export class HomeComponent {
   );
 
   public monsterSelected(monster: Monster): void {
-    const ref = this._dialogService.open(InitiativeDiceModalComponent, {});
-    ref.onClose.subscribe((roll) => {
-      this.queue.set(this.queue().regenerateWithNewMonster(monster, roll));
-    });
+    this._dialogService
+      .open(InitiativeDiceModalComponent, {})
+      .onClose.subscribe((roll) => {
+        this.queue.set(this.queue().addMonster(monster, roll).regenerate());
+      });
   }
 
   public roll(): void {

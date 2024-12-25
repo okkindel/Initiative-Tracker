@@ -37,6 +37,7 @@ module.exports = tseslint.config(
           prefix: 'it',
         },
       ],
+      '@angular-eslint/no-input-rename': 'off',
 
       '@typescript-eslint/explicit-function-return-type': 'warn',
       '@typescript-eslint/no-inferrable-types': 'off',

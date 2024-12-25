@@ -25,18 +25,17 @@ export class Queue {
   }
 
   public setUniqNames(): Queue {
-    const nameCounts = this.items.reduce((acc, item) => {
-      const count = acc.get(item.id) ?? 0;
-      acc.set(item.id, count + 1);
-      return acc;
-    }, new Map<string, number>());
+    this.items.forEach((item, idx) => {
+      const allItemsCount = this.items.filter(
+        (el) => el.name === item.name,
+      ).length;
 
-    this.items.forEach((item) => {
-      const count = nameCounts.get(item.id);
-      if (count && count > 1) {
-        item.displayedName = `${item.name} #${count}`;
-        nameCounts.set(item.id, count - 1);
-      }
+      const prevItemsCount = this.items
+        .slice(0, idx)
+        .filter((el) => el.name === item.name).length;
+
+      if (allItemsCount !== 1)
+        item.displayedName = `${item.name} #${prevItemsCount + 1}`;
     });
 
     return this;
@@ -58,8 +57,7 @@ export class Queue {
     return queue;
   }
 
-  public regenerateWithNewMonster(monster: Monster, roll: number): Queue {
-    this.addMonster(monster, roll).sort().setUniqNames();
-    return new Queue(this.items);
+  public regenerate(): Queue {
+    return new Queue(this.sort().setUniqNames().items);
   }
 }
