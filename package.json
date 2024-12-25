@@ -27,6 +27,8 @@
     "@angular/router": "^19.0.0",
     "@jsverse/transloco": "^7.5.0",
     "@jsverse/transloco-persist-lang": "^7.0.2",
+    "@ng-select/ng-select": "^14.1.0",
+    "@ngxpert/avvvatars": "^2.0.2",
     "@primeng/themes": "^19.0.1",
     "@tanstack/angular-query-experimental": "^5.52.0",
     "appwrite": "^16.1.0",

@@ -1,13 +1,13 @@
 import { type Models } from 'appwrite';
 
-import { Monsters } from './database.model';
+import { Monster } from './database.model';
 
 export const databaseDictionary = {
   monsters: 'monsters',
 } as const;
 
 export interface Database {
-  monsters: Monsters;
+  monsters: Monster;
 }
 
 export type Collection = keyof typeof databaseDictionary;

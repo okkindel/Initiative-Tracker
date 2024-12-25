@@ -1,0 +1,29 @@
+<p-card>
+  <ul role="list" class="divide-y divide-neutral-500/30">
+    @for (item of list(); track $index) {
+      <li class="flex items-center gap-x-4 py-5">
+        @if (item.avatarSrc) {
+          <img
+            class="size-12 flex-none rounded-full"
+            [src]="item.avatarSrc"
+            [alt]="item.id"
+          />
+        }
+        <div class="min-w-0">
+          <p class="text-sm/6 font-semibold">{{ item.name }}</p>
+          @if (item.basicInitiative) {
+            <p class="mt-1 truncate text-xs/5 text-gray-500">
+              Base Initiative: {{ item.basicInitiative }}
+            </p>
+          }
+        </div>
+
+        <div class="ml-auto mr-6 text-2xl">
+          <p>
+            {{ item.totalInitiative }}
+          </p>
+        </div>
+      </li>
+    }
+  </ul>
+</p-card>

@@ -7,6 +7,7 @@ import { ButtonModule } from 'primeng/button';
 import { DialogModule } from 'primeng/dialog';
 import { MessageService } from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
+import { CardModule } from 'primeng/card';
 import { NgModule } from '@angular/core';
 import Aura from '@primeng/themes/aura';
 
@@ -15,6 +16,7 @@ const DESIGN_MODULES = [
   ButtonModule,
   DialogModule,
   ToastModule,
+  CardModule,
 ];
 
 @NgModule({
