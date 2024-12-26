@@ -1,5 +1,6 @@
 @use '@ng-select/ng-select/scss/default.theme' with (
   $ng-select-dropdown-option-text: #ffffff,
+  $ng-select-disabled-text: #27272a,
   $ng-select-placeholder: #ffffffaa,
   $ng-select-primary-text: #ffffff,
   $ng-select-highlight: #968e37,
@@ -21,6 +22,6 @@
   }
 
   .ng-arrow {
-    display: none !important
+    display: none !important;
   }
 }

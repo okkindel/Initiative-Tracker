@@ -4,14 +4,9 @@ import {
   signal,
   inject,
 } from '@angular/core';
-import { injectQuery } from '@tanstack/angular-query-experimental';
-import { InitiativeDiceModalComponent } from '@core/containers';
-import { DatabaseService, UserService } from '@api/services';
-import { DialogService } from 'primeng/dynamicdialog';
+import { UserService } from '@api/services';
 import { Router } from '@angular/router';
-import { Monster } from '@api/models';
 import { Queue } from '@core/utils';
-import { Query } from 'appwrite';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -20,32 +15,12 @@ import { Query } from 'appwrite';
   standalone: false,
 })
 export class HomeComponent {
-  private readonly _databaseService = inject(DatabaseService);
-  private readonly _dialogService = inject(DialogService);
   private readonly _userService = inject(UserService);
   private readonly _router = inject(Router);
-
-  public readonly monsters = injectQuery(() => ({
-    queryKey: ['monsters'],
-    queryFn: (): Promise<Monster[]> =>
-      this._databaseService
-        .list('monsters', [Query.limit(10000)])
-        .then((res) => res.documents),
-  }));
 
   public readonly queue = signal<Queue>(
     Queue.fromPlayers(['Dagmar', 'Ditrich', 'Fulko', 'Salvas']),
   );
-
-  public monsterSelected(monster?: Monster): void {
-    if (!monster) return;
-
-    this._dialogService
-      .open(InitiativeDiceModalComponent, {})
-      .onClose.subscribe((roll) => {
-        this.queue.set(this.queue().addMonster(monster, roll).regenerate());
-      });
-  }
 
   public logout(): void {
     this._userService.logout().subscribe(() => {

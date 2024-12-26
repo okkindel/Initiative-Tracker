@@ -1,0 +1,23 @@
+<ng-select
+  (change)="monsterSelected($event); select.handleClearClick()"
+  [loading]="monsters.isLoading()"
+  placeholder="Find an enemy"
+  [items]="monsters.data()"
+  [readonly]="isRolling()"
+  [clearable]="false"
+  bindLabel="name"
+  class="w-80"
+  #select
+>
+  <ng-template ng-option-tmp let-item="item">
+    <div class="flex items-center gap-2">
+      <avvvatars [value]="item.name" [size]="32" />
+      <div>{{ item.name }}</div>
+    </div>
+  </ng-template>
+</ng-select>
+
+<p-button severity="secondary">
+  <p>Create new</p>
+  <it-icon name="Plus" />
+</p-button>

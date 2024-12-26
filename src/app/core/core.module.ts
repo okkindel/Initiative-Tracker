@@ -4,18 +4,24 @@ import { NgModule } from '@angular/core';
 import {
   InitiativeDiceModalComponent,
   InitiativeQueueComponent,
+  EnemiesToolbarComponent,
 } from './containers';
 import { CoreRoutingModule } from './core-routing.module';
+import { MonstersDtoService } from './services';
 import { HomeComponent } from './views';
 
 const COMPONENTS = [
   InitiativeDiceModalComponent,
   InitiativeQueueComponent,
+  EnemiesToolbarComponent,
   HomeComponent,
 ];
 
+const SERVICES = [MonstersDtoService];
+
 @NgModule({
-  declarations: [...COMPONENTS],
   imports: [CoreRoutingModule, SharedModule],
+  declarations: [...COMPONENTS],
+  providers: [...SERVICES],
 })
 export class CoreModule {}

@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 import { AppwriteService, DatabaseService, UserService } from './services';
 
 const userServiceInitializer = (service: UserService): Observable<unknown> =>
-  service.init();
+  service.getIsAuthenticated();
 
 @NgModule({
   providers: [

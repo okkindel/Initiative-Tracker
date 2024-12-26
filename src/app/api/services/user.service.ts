@@ -19,10 +19,6 @@ export class UserService {
   public readonly user$ =
     new BehaviorSubject<Models.User<Models.Preferences> | null>(null);
 
-  public getIsAuthenticated(): boolean {
-    return !!this.user$.value;
-  }
-
   public login(
     email: string,
     password: string,
@@ -38,7 +34,7 @@ export class UserService {
     );
   }
 
-  public init(): Observable<Models.User<Models.Preferences> | null> {
+  public getIsAuthenticated(): Observable<Models.User<Models.Preferences> | null> {
     return this._refreshUser().pipe(catchError(() => of(null)));
   }
 
