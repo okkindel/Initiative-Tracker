@@ -15,7 +15,7 @@ export class MonstersDtoService {
     queryKey: ['monsters'],
     queryFn: (): Promise<Monster[]> =>
       this._databaseService
-        .list('monsters', [Query.limit(10000)])
+        .list('monsters', [Query.limit(10000), Query.orderAsc('name')])
         .then((res) => res.documents),
   }));
 
