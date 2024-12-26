@@ -37,9 +37,8 @@ export class QItem {
   }
 
   public calculateTotal(): QItem {
-    if (this.basicInitiative) {
-      this.totalInitiative = this.basicInitiative + (this.initiativeRoll ?? 0);
-    }
+    this.totalInitiative =
+      (this.basicInitiative ?? 0) + (this.initiativeRoll ?? 0);
     return this;
   }
 

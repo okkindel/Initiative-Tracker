@@ -48,7 +48,7 @@ export class EnemiesToolbarComponent {
       .open(AddEnemyModalComponent, {})
       .onClose.subscribe((data) => {
         const { withQueue, monster } = data || null;
-        if (!withQueue) return;
+        if (!data || !withQueue) return;
         this.enemySelected(monster);
       });
   }
