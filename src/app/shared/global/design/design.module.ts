@@ -1,4 +1,5 @@
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { InputNumberModule } from 'primeng/inputnumber';
 import { DialogService } from 'primeng/dynamicdialog';
 import { InputTextModule } from 'primeng/inputtext';
 import { providePrimeNG } from 'primeng/config';
@@ -12,6 +13,7 @@ import { NgModule } from '@angular/core';
 import Aura from '@primeng/themes/aura';
 
 const DESIGN_MODULES = [
+  InputNumberModule,
   InputTextModule,
   ButtonModule,
   DialogModule,

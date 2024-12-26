@@ -30,9 +30,12 @@
         </div>
 
         <div class="ml-auto mr-6 flex items-center gap-4">
-          <p class="mr-8 text-2xl">
+          <button
+            class="mr-8 w-11 rounded border border-neutral-700 p-2 text-center text-xl shadow shadow-neutral-700/50 hover:bg-neutral-700/30"
+            (click)="changeInitiative(item)"
+          >
             {{ item.totalInitiative }}
-          </p>
+          </button>
 
           <p-button
             [severity]="item.killed ? 'secondary' : 'primary'"

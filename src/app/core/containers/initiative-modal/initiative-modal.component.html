@@ -1,0 +1,26 @@
+<p class="text-surface-300">
+  Set the initiative value for the current character.
+</p>
+
+<div class="mt-8 flex w-full justify-center">
+  <p-inputnumber
+    class="block"
+    buttonLayout="horizontal"
+    [(ngModel)]="initiative"
+    [showButtons]="true"
+    [max]="100"
+    [step]="1"
+    [min]="0"
+  >
+    <ng-template #incrementbuttonicon>
+      <it-icon name="Plus" />
+    </ng-template>
+    <ng-template #decrementbuttonicon>
+      <it-icon name="Minus" />
+    </ng-template>
+  </p-inputnumber>
+</div>
+
+<div class="mt-4 flex justify-end">
+  <p-button label="Save" (onClick)="save()" />
+</div>
