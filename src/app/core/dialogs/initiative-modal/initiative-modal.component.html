@@ -4,10 +4,11 @@
 
 <div class="mt-8 flex w-full justify-center">
   <p-inputnumber
-    class="block"
+    [formControl]="initiative"
     buttonLayout="horizontal"
-    [(ngModel)]="initiative"
+    (keyup.enter)="save()"
     [showButtons]="true"
+    class="block"
     [max]="100"
     [step]="1"
     [min]="0"
@@ -22,5 +23,5 @@
 </div>
 
 <div class="mt-4 flex justify-end">
-  <p-button label="Save" (onClick)="save()" />
+  <p-button [disabled]="!initiative.valid" (onClick)="save()" label="Save" />
 </div>

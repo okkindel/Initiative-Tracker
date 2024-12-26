@@ -18,9 +18,14 @@
 
 <div class="mt-6 flex justify-end gap-4">
   <p-button
-    label="Save"
-    [outlined]="true"
     (onClick)="save({ withQueue: false })"
+    [disabled]="!form.valid"
+    [outlined]="true"
+    label="Save"
   />
-  <p-button label="Save & add to queue" (onClick)="save({ withQueue: true })" />
+  <p-button
+    (onClick)="save({ withQueue: true })"
+    label="Save & add to queue"
+    [disabled]="!form.valid"
+  />
 </div>

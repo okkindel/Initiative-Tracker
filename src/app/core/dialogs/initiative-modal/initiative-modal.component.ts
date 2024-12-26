@@ -1,5 +1,6 @@
 import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
+import { FormControl, Validators } from '@angular/forms';
 import { QItem } from '@core/utils';
 
 @Component({
@@ -13,7 +14,10 @@ export class InitiativeModalComponent {
   private readonly _dialogRef = inject(DynamicDialogRef);
 
   public readonly data: QItem = this._dialogConfig.data['item'];
-  public initiative = this.data.totalInitiative;
+
+  public readonly initiative = new FormControl(this.data.totalInitiative, {
+    validators: [Validators.required, Validators.min(0), Validators.max(100)],
+  });
 
   constructor() {
     this._dialogConfig.header = `${this.data.name} Initiative`;
@@ -23,6 +27,7 @@ export class InitiativeModalComponent {
   }
 
   public save(): void {
-    this._dialogRef.close(this.initiative);
+    if (this.initiative.invalid) return;
+    this._dialogRef.close(this.initiative.value);
   }
 }

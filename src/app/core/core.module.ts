@@ -1,4 +1,4 @@
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '@shared/shared.module';
 import { NgModule } from '@angular/core';
 
@@ -27,7 +27,7 @@ const COMPONENTS = [
 const SERVICES = [MonstersDtoService];
 
 @NgModule({
-  imports: [CoreRoutingModule, SharedModule, FormsModule, ReactiveFormsModule],
+  imports: [CoreRoutingModule, SharedModule, ReactiveFormsModule],
   declarations: [...COMPONENTS],
   providers: [...SERVICES],
 })

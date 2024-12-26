@@ -46,7 +46,8 @@ export class EnemiesToolbarComponent {
   public addNewEnemy(): void {
     this._dialogService
       .open(AddEnemyModalComponent, {})
-      .onClose.subscribe(({ withQueue, monster }) => {
+      .onClose.subscribe((data) => {
+        const { withQueue, monster } = data || null;
         if (!withQueue) return;
         this.enemySelected(monster);
       });
