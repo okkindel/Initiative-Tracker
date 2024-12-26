@@ -5,8 +5,8 @@ import {
   inject,
 } from '@angular/core';
 import { injectQuery } from '@tanstack/angular-query-experimental';
+import { InitiativeDiceModalComponent } from '@core/containers';
 import { DatabaseService, UserService } from '@api/services';
-import { InitiativeDiceModalComponent } from '@core/modals';
 import { DialogService } from 'primeng/dynamicdialog';
 import { Router } from '@angular/router';
 import { Monster } from '@api/models';
@@ -37,7 +37,9 @@ export class HomeComponent {
     Queue.fromPlayers(['Dagmar', 'Ditrich', 'Fulko', 'Salvas']),
   );
 
-  public monsterSelected(monster: Monster): void {
+  public monsterSelected(monster?: Monster): void {
+    if (!monster) return;
+
     this._dialogService
       .open(InitiativeDiceModalComponent, {})
       .onClose.subscribe((roll) => {

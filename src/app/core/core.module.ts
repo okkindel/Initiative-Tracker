@@ -1,15 +1,17 @@
 import { SharedModule } from '@shared/shared.module';
 import { NgModule } from '@angular/core';
 
+import {
+  InitiativeDiceModalComponent,
+  InitiativeQueueComponent,
+} from './containers';
 import { CoreRoutingModule } from './core-routing.module';
-import { InitiativeDiceModalComponent } from './modals';
-import { InitiativeQueueComponent } from './containers';
 import { HomeComponent } from './views';
 
 const COMPONENTS = [
-  HomeComponent,
   InitiativeDiceModalComponent,
   InitiativeQueueComponent,
+  HomeComponent,
 ];
 
 @NgModule({

@@ -9,10 +9,11 @@
 </header>
 
 <section class="container mx-auto mt-4 flex h-full flex-col">
-  <div class="flex justify-end gap-4">
+  <div class="flex items-center justify-end gap-4">
     <ng-select
       (change)="monsterSelected($event); select.handleClearClick()"
       [loading]="monsters.isLoading()"
+      placeholder="Find an enemy"
       [items]="monsters.data()"
       [clearable]="false"
       bindLabel="name"
@@ -26,6 +27,11 @@
         </div>
       </ng-template>
     </ng-select>
+
+    <p-button severity="secondary">
+      <p>Create new</p>
+      <it-icon name="Plus" />
+    </p-button>
   </div>
 
   <div class="mt-4 flex h-full items-center justify-center">

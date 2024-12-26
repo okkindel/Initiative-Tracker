@@ -40,6 +40,9 @@ const DESIGN_MODULES = [
             },
           },
         }),
+        options: {
+          darkModeSelector: '.aura-dark',
+        },
       },
     }),
     provideAnimationsAsync(),

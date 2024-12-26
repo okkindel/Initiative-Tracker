@@ -1,0 +1,26 @@
+@use '@ng-select/ng-select/scss/default.theme' with (
+  $ng-select-dropdown-option-text: #ffffff,
+  $ng-select-placeholder: #ffffffaa,
+  $ng-select-primary-text: #ffffff,
+  $ng-select-highlight: #968e37,
+  $ng-select-border-radius: 6px,
+  $ng-select-marked: #27272a,
+  $ng-select-border: #52525b,
+  $ng-select-height: 42px,
+  $ng-select-bg: #09090b
+);
+
+.ng-select {
+  .ng-select-container {
+    line-height: 36px !important;
+    padding-top: 6px !important;
+  }
+
+  .ng-option-selected {
+    border-radius: 1rem !important;
+  }
+
+  .ng-arrow {
+    display: none !important
+  }
+}

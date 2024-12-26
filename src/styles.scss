@@ -1,16 +1,5 @@
+@use './app/shared/styles/main.scss';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@import '@ng-select/ng-select/themes/default.theme.css';
-
-@font-face {
-  font-family: 'Metamorphous';
-  src: url('/assets/fonts/Metamorphous-Regular.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-
-* {
-  font-family: 'Metamorphous', sans-serif;
-}
