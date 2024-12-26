@@ -1,4 +1,7 @@
-import { injectQuery } from '@tanstack/angular-query-experimental';
+import {
+  injectMutation,
+  injectQuery,
+} from '@tanstack/angular-query-experimental';
 import { Injectable, inject } from '@angular/core';
 import { DatabaseService } from '@api/services';
 import { Monster } from '@api/models';
@@ -14,5 +17,13 @@ export class MonstersDtoService {
       this._databaseService
         .list('monsters', [Query.limit(10000)])
         .then((res) => res.documents),
+  }));
+
+  public readonly createMonster = injectMutation(() => ({
+    mutationFn: (value: Monster): Promise<Monster> =>
+      this._databaseService.add('monsters', value),
+    onSuccess: (): void => {
+      this.monsters.refetch();
+    },
   }));
 }

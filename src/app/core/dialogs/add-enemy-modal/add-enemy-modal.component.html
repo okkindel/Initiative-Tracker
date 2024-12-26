@@ -1,0 +1,26 @@
+<form [formGroup]="form">
+  <div class="flex flex-col gap-2">
+    <label for="name">Enemy name</label>
+    <input formControlName="name" pInputText id="name" required />
+  </div>
+
+  <div class="mt-4 flex flex-col gap-2">
+    <label for="basicInitiative">Enemy initiative</label>
+    <p-input-number
+      formControlName="basicInitiative"
+      id="basicInitiative"
+      [max]="100"
+      [min]="0"
+      required
+    />
+  </div>
+</form>
+
+<div class="mt-6 flex justify-end gap-4">
+  <p-button
+    label="Save"
+    [outlined]="true"
+    (onClick)="save({ withQueue: false })"
+  />
+  <p-button label="Save & add to queue" (onClick)="save({ withQueue: true })" />
+</div>

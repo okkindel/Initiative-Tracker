@@ -5,7 +5,10 @@ import {
   signal,
   model,
 } from '@angular/core';
-import { InitiativeDiceModalComponent } from '@core/containers';
+import {
+  InitiativeDiceModalComponent,
+  AddEnemyModalComponent,
+} from '@core/dialogs';
 import { DialogService } from 'primeng/dynamicdialog';
 import { MonstersDtoService } from '@core/services';
 import { Monster } from '@api/models';
@@ -27,16 +30,25 @@ export class EnemiesToolbarComponent {
 
   public readonly isRolling = signal<boolean>(false);
 
-  public monsterSelected(monster?: Monster): void {
-    if (!monster) return;
+  public enemySelected(enemy?: Monster): void {
+    if (!enemy) return;
 
     this.isRolling.set(true);
 
     this._dialogService
       .open(InitiativeDiceModalComponent, {})
       .onClose.subscribe((roll) => {
-        this.queue.set(this.queue().addMonster(monster, roll).regenerate());
+        this.queue.set(this.queue().addMonster(enemy, roll).regenerate());
         this.isRolling.set(false);
+      });
+  }
+
+  public addNewEnemy(): void {
+    this._dialogService
+      .open(AddEnemyModalComponent, {})
+      .onClose.subscribe(({ withQueue, monster }) => {
+        if (!withQueue) return;
+        this.enemySelected(monster);
       });
   }
 }

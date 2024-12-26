@@ -1,5 +1,5 @@
 <ng-select
-  (change)="monsterSelected($event); select.handleClearClick()"
+  (change)="enemySelected($event); select.handleClearClick()"
   [loading]="monsters.isLoading()"
   placeholder="Find an enemy"
   [items]="monsters.data()"
@@ -17,7 +17,7 @@
   </ng-template>
 </ng-select>
 
-<p-button severity="secondary">
+<p-button severity="secondary" (onClick)="addNewEnemy()">
   <p>Create new</p>
   <it-icon name="Plus" />
 </p-button>

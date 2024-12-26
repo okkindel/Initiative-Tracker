@@ -18,7 +18,6 @@ export class InitiativeModalComponent {
   constructor() {
     this._dialogConfig.header = `${this.data.name} Initiative`;
     this._dialogConfig.closeOnEscape = true;
-    this._dialogConfig.focusOnShow = false;
     this._dialogConfig.closable = true;
     this._dialogConfig.width = '40rem';
   }

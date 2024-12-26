@@ -5,7 +5,7 @@ import {
   inject,
   model,
 } from '@angular/core';
-import { InitiativeModalComponent } from '@core/containers';
+import { InitiativeModalComponent } from '@core/dialogs';
 import { DialogService } from 'primeng/dynamicdialog';
 import { QItem, Queue } from '@core/utils';
 

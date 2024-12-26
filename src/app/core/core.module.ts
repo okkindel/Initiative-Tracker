@@ -1,11 +1,14 @@
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { SharedModule } from '@shared/shared.module';
-import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 
 import {
   InitiativeDiceModalComponent,
-  InitiativeQueueComponent,
   InitiativeModalComponent,
+  AddEnemyModalComponent,
+} from './dialogs';
+import {
+  InitiativeQueueComponent,
   EnemiesToolbarComponent,
 } from './containers';
 import { CoreRoutingModule } from './core-routing.module';
@@ -17,13 +20,14 @@ const COMPONENTS = [
   InitiativeModalComponent,
   InitiativeQueueComponent,
   EnemiesToolbarComponent,
+  AddEnemyModalComponent,
   HomeComponent,
 ];
 
 const SERVICES = [MonstersDtoService];
 
 @NgModule({
-  imports: [CoreRoutingModule, SharedModule, FormsModule],
+  imports: [CoreRoutingModule, SharedModule, FormsModule, ReactiveFormsModule],
   declarations: [...COMPONENTS],
   providers: [...SERVICES],
 })
